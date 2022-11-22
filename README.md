@@ -4,13 +4,13 @@
 
 An introductory to React programming with example code snippets.
 
-| Topic of Discussion | Code Snippet |
+| Topic of Discussion | HTML Code Snippet |
 | ------------------- | ------------ |
-| Entry to React      | helloWorld.html |
-| Parent & Child Properties | properties.html, propsChild.html |
-| React Styling | styleObject.html |
-| Complex Components | colorPalette.html |
-| Dealing w/ State | lightningCounter.html |
-| Working w/ Data | circle.html |
-| Event Handling & References | counter.html, colorizer.html |
-| React & Redux | favoriteColors.html |
+| Entry to React      | helloWorld |
+| Parent & Child Properties | moreProperties, properties, propsChild |
+| React Styling | styleObject |
+| Complex Components | colorPalette |
+| Dealing w/ State | lightningCounter |
+| Working w/ Data | circle |
+| Event Handling & References | counter, colorizer |
+| React & Redux | favoriteColors |
