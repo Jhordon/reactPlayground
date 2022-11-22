@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title> Parent & Child Properties </title>
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+    <style>
+        #container {
+            padding: 50px;
+            background-color: #EEE;
+        }
+    </style>
+</head>
+
+<body>
+    <div id = "container">
+        <script type = "text/babel">
+            var destination = document.querySelector("#container");
+
+            class Planet extends React.Component {
+                render() {
+                    return(
+                        <div>
+                            <h1> {this.props.name} </h1>
+                        </div>
+                    ); 
+                }
+            }
+
+            class App extends React.Component {
+                render() {
+                    const planets = [
+                        { name: "Mars", isGasPlanet: false },
+                        { name: "Earth", isGasPlanet: false },
+                        { name: "Jupiter", isGasPlanet: true },
+                        { name: "Venus", isGasPlanet: false },
+                        { name: "Neptune", isGasPlanet: true },
+                        { name: "Uranus", isGasPlanet: true },
+                    ]
+                    return(
+                        <div>
+                        <div>
+                            <h1> Gas Planets </h1>
+                            {planets.map((planet, key) => {
+                                if (planet.isGasPlanet) return <Planet name={planet.name} />
+                            })}
+                        </div>
+                        <div>
+                            <h1> None Gas Planets </h1>
+                            {planets.map((planet,key) => {
+                                if (!planet.isGasPlanet) return <Planet name={planet.name}/>
+                            })}
+                        </div>
+                        <div>
+                            <h1> Gas Planets </h1>
+                            {planets.map((planet, key) => planet.isGasPlanet && <Planet name = {planet.name} />)}
+                        </div>
+                        </div>
+                    );
+                }
+            }
+
+            ReactDOM.render(
+                <div>
+                    <App />
+                </div>,
+                destination
+            );
+        </script>
+    </div>
+</body>

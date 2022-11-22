@@ -7,10 +7,10 @@ An introductory to React programming with example code snippets.
 | Topic of Discussion | HTML Code Snippet |
 | ------------------- | ------------ |
 | Entry to React      | helloWorld |
-| Parent & Child Properties | moreProperties, properties, propsChild |
+| Parent & Child Properties | moreProperties, properties, propsChild, arrayPractice |
 | React Styling | styleObject |
 | Complex Components | colorPalette |
-| Dealing w/ State | lightningCounter |
+| Dealing w/ State | lightningCounter, statePractice |
 | Working w/ Data | circle |
 | Event Handling & References | counter, colorizer |
 | React & Redux | favoriteColors |

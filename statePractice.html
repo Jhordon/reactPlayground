@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title> Dealing w/ State </title>
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+    <style>
+        #container {
+            padding: 50px;
+            background-color: #EEE;
+        }
+
+        .button:hover {
+            background: #FF96AD;
+            box-shadow: 0 0 5px #FF96AD, 0 0 25px #FF96AD, 0 0 50px #FF96AD, 0 0 200px #FF96AD;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <script type="text/babel">
+            var destination = document.querySelector("#container");
+
+            class Parent extends React.Component {
+                constructor(props) {
+                    super(props);
+                    this.state = {
+                        count: 0,
+                        bgColor: "#FFCCAB"
+                    };
+                    this.increase = this.increase.bind(this);
+                    this.decrease = this.decrease.bind(this);
+                    this.clear = this.clear.bind(this);
+                }
+
+                clear(e) {
+                    this.setState({
+                        count: 0
+                    });
+                }
+                increase(e) {
+                    var currentCount = this.state.count;
+                    currentCount += 1;
+                    this.setState({
+                        count: currentCount
+                    });
+                }
+                decrease(e) {
+                    var currentCount = this.state.count;
+                    currentCount -= 1;
+                    this.setState({
+                        count: currentCount
+                    });
+                }
+
+                changeColor = () => {
+                    this.setState({
+                        bgColor: 'rgb(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ')'
+                    });
+                }
+                render() {
+                    var textStyle = {
+                        fontSize: 72,
+                        fontFamily: "sans-serif",
+                        color: "#333",
+                        fontWeight: "bold",
+                        backgroundColor: this.state.bgColor
+                    }
+                    const isGreen = false;
+                    return (
+                        <div style={textStyle}>
+                            {this.state.count}
+                            <div>
+                                <button className="button" onClick={this.changeColor}> change </button>
+                                <button className="button" onClick={this.increase}> + </button>
+                                <button className="button" onClick={this.clear}> c </button>
+                                <button className="button" onClick={this.decrease}> - </button>
+                            </div>
+
+                            <h1 style={{color: isGreen ? "green" : "red"}}> Color is green </h1>
+                        </div>
+                    );
+                }
+            }
+
+            ReactDOM.render(
+                <div>
+                    <Parent />
+                </div>,
+                destination
+            ); 
+        </script>
+    </div>
+
+</body>
