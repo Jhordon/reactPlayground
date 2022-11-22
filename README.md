@@ -11,7 +11,6 @@ An introductory to React programming with example code snippets.
 | React Styling | styleObject.html |
 | Complex Components | colorPalette.html |
 | Dealing w/ State | lightningCounter.html |
-| Working w/ Data | ipaddress, circle.html |
+| Working w/ Data | circle.html |
 | Event Handling & References | counter.html, colorizer.html |
-| Tying it Altogether | todolist, slidingmenu, singlepageapp |
-| React & Redux | favoriteColors.html, react-redux |
+| React & Redux | favoriteColors.html |
