@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!--
+    Challenge:
+        1. Make the circles clickable and onClick change the color
+-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> Working w/ Data </title>
+        <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+        <style>
+            #container {
+                padding: 50px;
+                background-color: #EEE;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="container"></div>
+        <script type="text/babel">
+            var destination = document.querySelector("#container");
+
+            class Circle extends React.Component {
+                constructor(props) {
+                    super(props);
+                    var colors = ["#60FCDE", "#BDC34A", "#FF34FA", "#1C89BF", "#A1D363", "#39E411", "#EFC89A", "#BADCFA"];
+                    var ran = Math.floor(Math.random() * colors.length);
+                    this.state = {
+                        bgColor: colors[ran]
+                    };
+                }
+
+                changeColor = () => {
+                    var code = 'rgb(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ')';
+                    this.setState({
+                        bgColor: code
+                    });
+                }
+
+                render() {
+                    var circleStyle = {
+                        padding: 10, 
+                        margin: 20, 
+                        display: "inline-block",
+                        backgroundColor: this.state.bgColor,
+                        borderRadius: "50%",
+                        width: 100,
+                        height: 100,
+                    };
+                    return (
+                        <button style = {circleStyle} onClick = {this.changeColor}></button>                    
+                    );
+                }
+            }
+
+            var theCircle = <Circle bgColor="#F9C240" />;
+
+            function showCircle() {
+                var colors = ["#39E411", "#E94F37", "#1C89BF", "#A1D363"];
+                var ran = Math.floor(Math.random() * colors.length);
+                return <Circle bgColor = {colors[ran]}/>;
+            };
+
+            var colors = ["#60FCDE", "#BDC34A", "#FF34FA", "#1C89BF", "#A1D363", "#39E411", "#EFC89A", "#BADCFA"];
+            var renderData = [];
+            for (var i = 0; i < colors.length; i++) {
+                var color = colors[i];
+                renderData.push(<Circle key = {i + color} bgColor = {color}/>);
+            }
+
+            ReactDOM.render(
+                <div>
+                    {theCircle}
+                    <br></br>
+                    {showCircle()}
+                    {showCircle()}
+                    {showCircle()}
+                    {showCircle()}
+                    <br></br>
+                    {renderData}
+                </div>,
+                destination,
+            );
+        </script>
+    </body>
+</html>
